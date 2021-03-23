@@ -3,12 +3,12 @@
 from flask import Flask
 from flask_restful import Api
 
-from policy_request import PolicyRequest
+from policy import Policy
 
 app = Flask(__name__)
 api = Api( app )
 
-api.add_resource( PolicyRequest, '/policy-request' )
+api.add_resource( Policy, '/policy-request' )
 
 
 if __name__ == '__main__':

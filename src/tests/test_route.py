@@ -2,7 +2,7 @@ import unittest
 from app import app
 
 
-class TestPolicyRequest(unittest.TestCase):
+class TestPolicy(unittest.TestCase):
     """
     A class to test policy request
     """

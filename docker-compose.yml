@@ -10,4 +10,5 @@ services:
     volumes:
       - ./src:/src
     command: >
-      sh -c "python -m unittest"
+      sh -c "python -m unittest
+      && python app.py"
