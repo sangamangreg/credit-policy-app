@@ -1,3 +1,4 @@
+""" test routes by creating a client connection """
 import unittest
 from app import app
 
