@@ -27,6 +27,6 @@ docker-compose up [-d]
 ```
 
 ``docker-compose`` command it will first execute test cases and then run the
- app on port 5000. It's been done intentional to showcase that test cases 
+ app on port 5000. It's been done intentionally to showcase that test cases 
  has been written and executed before running the app.
 
