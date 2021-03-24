@@ -9,6 +9,7 @@ from utils.validators.base_validator import ValidationMessage
 from utils.validators.debt_validator import DebtValidator
 from utils.validators.income_validator import IncomeValidator
 from utils.validators.remarks_validator import PaymentRemarksValidator
+from utils.validators.remarks_validator import PaymentRemarks12MValidator
 
 from utils.policy_request import PolicyRequest
 
@@ -32,13 +33,16 @@ class CustomerPolicyValidator( BaseValidator, ABC ):
                                   age_criteria=PolicyCriteria.AGE )
 
         remarks_check = PaymentRemarksValidator(
-            customer_remarks=self.policy_request,
-            criteria_12m=PolicyCriteria.remarks_12m,
+            remarks=self.policy_request.remarks,
             criteria_remarks=PolicyCriteria.remarks )
 
+        remarks_12m_check = PaymentRemarks12MValidator(
+            remarks_12m=self.policy_request.remarks_12m,
+            criteria_12m=PolicyCriteria.remarks_12m )
+
         # maintain order - important step of validation
-        validator = income_check.plus_(
-            debt_check.plus_( remarks_check.plus_( age_check ) ) )
+        validator = income_check.plus_(debt_check.plus_(
+            remarks_check.plus_( remarks_12m_check.plus_( age_check ) ) ) )
 
         # return validation message with ACCEPT | REJECT
         return validator.is_valid()
