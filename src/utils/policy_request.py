@@ -1,7 +1,7 @@
 """ a request object """
 
 
-class PolicyRequest( object ):
+class PolicyRequest:
     """ map policy request to object """
 
     def __init__(self, age: float, income: float, debt: float, remarks: int,
