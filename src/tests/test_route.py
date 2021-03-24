@@ -71,7 +71,7 @@ class TestPolicy(unittest.TestCase):
         } )
         json_data = res.get_json()
         self.assertEqual( "REJECT", json_data['status'] )
-        self.assertEqual( "PAYMENT_REMARKS_12M", json_data['reason_of_rejection'] )
+        self.assertEqual( "PAYMENT_REMARKS", json_data['reason_of_rejection'] )
 
     def test_invalid_request_age_remarks_12m_debt(self):
         """ Age, payment remarks, 12m, debts invalid """
