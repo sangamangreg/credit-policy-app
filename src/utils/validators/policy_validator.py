@@ -42,7 +42,8 @@ class CustomerPolicyValidator( BaseValidator, ABC ):
 
         # maintain order - important step of validation
         validator = income_check.plus_(debt_check.plus_(
-            remarks_check.plus_( remarks_12m_check.plus_( age_check ) ) ) )
+            remarks_check.plus_( remarks_12m_check.plus_( age_check ) )
+        ) )
 
         # return validation message with ACCEPT | REJECT
         return validator.is_valid()
